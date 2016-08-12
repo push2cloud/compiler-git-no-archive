@@ -19,14 +19,14 @@ const cmd = (
 , file
 , target
 ) => (
-  `if [ ! -d ${target}/__tmp/${reference} ];
+  `if [ ! -d ${target}/__tmp/${repo}@${reference} ];
     then
     mkdir -p ${target}/__tmp;
     cd ${target}/__tmp;
-    git clone ${repo} ${reference};
+    git clone ${repo} ${repo}@${reference};
     cd ../..;
   fi;
-  cd ${target}/__tmp/${reference} && git checkout ${reference} && mkdir -p ${target}/$( dirname ${file} ) && cp ${file} ${target}/$( dirname ${file} )`
+  cd ${target}/__tmp/${repo}@${reference} && git checkout ${reference} && mkdir -p ${target}/$( dirname ${file} ) && cp ${file} ${target}/$( dirname ${file} )`
 );
 
 const gitFile = _.curry((

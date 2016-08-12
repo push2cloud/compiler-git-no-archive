@@ -21,14 +21,14 @@ const cmd = (
 , targetDir
 , targetFile
 ) => (
-  `if [ ! -d ${targetDir}/__tmp/${reference} ];
+  `if [ ! -d ${targetDir}/__tmp/${repo}@${reference} ];
     then
     mkdir -p ${targetDir}/__tmp;
     cd ${targetDir}/__tmp;
-    git clone ${repo} ${reference};
+    git clone ${repo} ${repo}@${reference};
     cd ../..;
   fi;
-  cd ${targetDir}/__tmp/${reference} && git checkout ${reference} && cp ${file} ${targetFile}`
+  cd ${targetDir}/__tmp/${repo}@${reference} && git checkout ${reference} && cp ${file} ${targetFile}`
 );
 
 const gitFile = _.curry((
