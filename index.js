@@ -4,6 +4,8 @@ const gitFile = _.curry(require('./gitFile'), 2);
 const gitFileAs = _.curry(require('./gitFileAs'), 2);
 
 const gitPlugin = {
+  type: 'git',
+
   scriptHashes: [],
 
   getFile(ctx) {
@@ -16,8 +18,8 @@ const gitPlugin = {
 
   getSource(app, target) {
     return gitClone(
-      { repo: app.source.url
-      , reference: app.source.referenceValue
+      { url: app.source.url
+      , referenceValue: app.source.referenceValue
       , target: target
       }
     );

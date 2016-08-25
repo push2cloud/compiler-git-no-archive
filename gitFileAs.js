@@ -36,7 +36,7 @@ const gitFile = _.curry((
 , cb
 ) => {
   ctx.targetFile = ctx.targetFile || ctx.file;
-  const command = cmd(ctx.repo, ctx.reference, ctx.file, ctx.targetDir, ctx.targetFile);
+  const command = cmd(ctx.url, ctx.referenceValue, ctx.file, ctx.targetDir, ctx.targetFile);
   debug('starting command', command);
   exec(command, {silent: false, async:true}, debugCb(debug, cb));
 });

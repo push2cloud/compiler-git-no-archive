@@ -33,7 +33,7 @@ const gitClone = (
     }
   } catch (e) {}
 
-  const command = cmd(ctx.repo, ctx.target, ctx.reference);
+  const command = cmd(ctx.url, ctx.target, ctx.referenceValue);
   debug('starting command', command);
   exec(command, {silent: true, async:true}, debugCb(debug, cb));
 };

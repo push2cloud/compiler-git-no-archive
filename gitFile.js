@@ -33,7 +33,7 @@ const gitFile = _.curry((
   ctx
 , cb
 ) => {
-  const command = cmd(ctx.repo, ctx.reference, ctx.file, ctx.target);
+  const command = cmd(ctx.url, ctx.referenceValue, ctx.file, ctx.target);
   debug('starting command', command);
   exec(command, {silent: false, async:true}, debugCb(debug, cb));
 });
