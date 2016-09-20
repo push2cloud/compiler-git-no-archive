@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "debug": "2.2.0",
-    "lodash": "4.15.0",
+    "lodash": "4.16.1",
     "shelljs": "0.7.4"
   }
 }
